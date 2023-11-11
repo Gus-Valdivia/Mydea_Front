@@ -191,7 +191,7 @@ input[type="radio"]:checked {
   height: 5%;
 }
 
-.cnf1 input[type="text"],
+.Datos_Negocio input[type="text"],
 textarea,
 select,
 .cnf1 input[type="tel"] {
@@ -447,7 +447,17 @@ label img {
 }
 
 .prof1_s1, .prof1_s2{
-  height: 48%;
+  height: 100%;
+  width: 48%;
+}
+
+.prof1_s11{
+  width: 50%; 
+  margin: 0px;
+}
+
+.prof1_s1 .log_cnf{
+  width: 100%;
 }
 
 .log_cnf .Logo_Prev{
@@ -477,4 +487,9 @@ label img {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   padding: 10px;
+}
+
+.prof1_s2 input{
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  height: 40px;
 }

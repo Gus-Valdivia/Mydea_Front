@@ -389,5 +389,5 @@ Btn_AProduct.addEventListener("click", ()=>{
   Btn_DNProduct.style.fontWeight = "400";
   Btn_DNProduct.classList.add("btn_nav_cnf_btn2");
   Btn_DNProduct.style.color = "#000";
-  Txt_tittle_cnf.innerText = "Crear y Añadir Productos";
+  Txt_tittle_cnf.innerText = "Crear y Añadir Productos o Servicios";
 });

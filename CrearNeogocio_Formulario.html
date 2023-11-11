@@ -169,7 +169,7 @@
             Datos del Negocio
           </button>
           <button type="button" class="btn btn_nav_cnf btn_nav_cnf_btn2" id="Btn_AnadirP">
-            Añadir Productos
+            Añadir Productos y/o Servicios
           </button>
         </section>
         <form class="p22_cnf p-4 pt-3" method="post">
@@ -557,21 +557,65 @@
             </div>
           </div>
           <div class="form_cnf Productos_cnf justify-content-between" id="Productos_cnf">
-            <div class="prof1_cnf">
-              <section class="prof1_s1">
-                <section class="log_cnf d-flex flex-column justify-content-center align-items-center">
-                  <span class="fw-bold">Logo del Negocio
-                    <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
-                      data-bs-title="Tooltip on right"></i></span>
-                  <section class="Logo_Prev" id="Logo_Prev">
-                    <img src="" alt="Logo" id="Prev_img" class="Prev_Log" />
-                    <input type="file" class="d-none" name="logo_cnf" id="logo_cnf" accept="image/png, image/jpeg" />
-                    <i class="bi bi-image Plus_L" id="Plus_L"></i>
+            <div class="prof1_cnf d-flex flex-column">
+              <section class="d-flex w-100 h-50 justify-content-around">
+
+                <section class="prof1_s1">
+                  <section class="log_cnf d-flex flex-column justify-content-center align-items-center prof1_s11">
+                    <span class="fw-bold">Imagen del Producto o Servicio
+                      <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-bs-title="Tooltip on right"></i></span>
+                    <section class="Logo_Prev" id="Logo_Prev">
+                      <img src="" alt="Logo" id="Prev_img" class="Prev_Log" />
+                      <input type="file" class="d-none" name="logo_cnf" id="logo_cnf" accept="image/png, image/jpeg" />
+                      <i class="bi bi-image Plus_L" id="Plus_L"></i>
+                    </section>
+                  </section>
+                </section>
+                <section class="prof1_s2 d-flex flex-column justify-content-around">
+                  <section>
+                    <span class="fw-bold">Nombre del Producto o Servicio
+                      <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-bs-title="Tooltip on right"></i></span>
+                    <input type="text" class="form-control" placeholder="Nombre de su negocio" />
+                  </section>
+                  <section>
+                    <span class="fw-bold">Precio del Producto o Servicio
+                      <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-bs-title="Tooltip on right"></i></span>
+                    <input type="number" class="form-control" placeholder="Nombre de su negocio" />
                   </section>
                 </section>
               </section>
-              <section class="prof1_s2">
-                
+              <section class="d-flex flex-column w-100 h-50 justify-content-around">
+                <section class="d-flex flex-column h-50">
+                  <span class="fw-bold">Descripcion del Producto o Servicio
+                    <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Tooltip on right"></i></span>
+                  <textarea class="form-control txta_cnf" name="" id=""></textarea>
+                </section>
+                <section class="d-flex h-50 justify-content-around w-100 flex-column">
+                  <span class="fw-bold">Disponibilidad del Producto o Servicio
+                    <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Tooltip on right"></i></span>
+                  <section class="d-flex h-50 w-100 justify-content-between">
+                    <select class="form-select w-75" aria-label="Default select example">
+                      <option selected disabled hidden>
+                        Seleccione la Disponibilidad de su Producto o Servicio
+                      </option>
+                      <option value="Tod_Mom">Disponible en todo momento</option>
+                      <option value="Pedido">Por Pedido</option>
+                      <option value="Mayoreo">Mayoreo</option>
+                      <option value="Unidad">Solo por Unidad</option>
+                      <option value="Cafeteria">Disponible por un Tiempo</option>
+                      <option value="Proximamente">Proximamente</option>
+                    </select>
+                    <button type="button" type="button" class="btn btn-outline-dark btn_rosa h-75 text-white"
+                      id="btn_negypro">
+                      Añadir a la Lista
+                    </button>
+                  </section>
+                </section>
               </section>
             </div>
             <div class="prof2_cnf"></div>

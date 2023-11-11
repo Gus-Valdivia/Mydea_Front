@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.2/dist/sweetalert2.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.2/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/General/Navegador_SC.css" />
+  <link rel="icon" href="assets/Logo_Icon.png" type="icon" />
+  <link rel="stylesheet" href="css/Crear/CrearFormN.css" />
+  <title>Difunde tú Negocio con Mydea</title>
+</head>
+
+<body class="w-100 h-100">
+  <nav class="bg-body-tertiary container-fluid">
+    <div class="row d-flex align-items-center p-1 h-100">
+      <div class="col-2 d-flex">
+        <a href="index.html"><img src="assets/logo_mydea_comida.png" alt="logotipo" class="img-fluid logo" /></a>
+      </div>
+      <form class="col-4 d-flex w-10" method="post">
+        <input class="form-control input_search" placeholder="Buscar... (Cafeterias, Abarrotes, Snacks)"
+          aria-label="Search" />
+        <button type="button" class="btn button_search" type="submit">
+          <i class="bi bi-search text-white"></i>
+        </button>
+      </form>
+      <div class="col-2 d-flex justify-content-center">
+        <button type="button" type="button" class="btn btn-outline-dark btn_negro large" id="btn_negypro">
+          Negocios y Productos
+        </button>
+      </div>
+      <div class="col-3 d-flex justify-content-evenly">
+        <div class="btn-group Cuenta_des w-50">
+          <button type="button" type="button" class="btn btn-sm btn-secondary btn_count" id="btn_count_nav">
+            <i class="bi bi-person-circle"></i>Cuenta
+          </button>
+          <button type="button" type="button"
+            class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split btn_des w-0" data-bs-toggle="dropdown"
+            aria-expanded="false"></button>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item" id="btn_count2_nav">Revisar Cuenta</li>
+            <li class="dropdown-item" id="btn_edit_nav">Editar Cuenta</li>
+            <li class="dropdown-item" id="btn_sav2_nav">Guardados</li>
+            <li class="dropdown-item" id="btn_res_nav">Reseñas</li>
+            <li class="dropdown-item" id="btn_sb_nav">Subir un Negocio</li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li class="dropdown-item" id="btn_lgout_nav">Cerrar Sesion</li>
+          </ul>
+        </div>
+        <button type="button" type="button" class="btn btn-sm btnp" data-bs-toggle="tooltip" id="btn_sav_nav"
+          data-bs-placement="bottom" data-bs-title="Guardados">
+          <i class="bi bi-bookmark-fill book"></i>
+        </button>
+      </div>
+      <div class="col-1 d-flex justify-content-center">
+        <button type="button" class="navbar-toggler icon" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end mn_hm" tabindex="-1" id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header shadow hamburger_menu d-flex flex-column">
+        <div class="d-flex align-items-center justify-content-between w-100">
+          <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel"></h5>
+          <button type="button" type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <div class="d-flex flex-column w-80">
+            <section class="img_perfil shadow">
+              <img src="assets/Logo_Icon.png" alt="Perfil" />
+            </section>
+            <span class="text-white tittle_c">Nombre de Usuario</span>
+            <span class="text-white">correo@electronico.com</span>
+          </div>
+          <div class="d-flex flex-column justify-content-between ih">
+            <button type="button" class="btn icons_h" data-bs-toggle="tooltip" id="btn_edit_h" data-bs-placement="left"
+              data-bs-title="Editar Cuenta">
+              <i class="bi bi-gear-wide-connected"></i>
+            </button>
+            <button type="button" class="btn icons_h" data-bs-toggle="tooltip" id="btn_guardado_h"
+              data-bs-placement="left" data-bs-title="Guardados">
+              <i class="bi bi-bookmark-fill"></i>
+            </button>
+            <button type="button" class="btn icons_h" data-bs-toggle="tooltip" id="btn_lgout_h" data-bs-placement="left"
+              data-bs-title="Cerrar Sesion">
+              <i class="bi bi-box-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-body hamburger_body d-flex flex-column">
+        <form class="d-flex mt-3 justify-content-center busq_hamburguer" method="post">
+          <input class="form-control input_search" placeholder="Buscar... (Cafeterias, Abarrotes, Snacks)"
+            aria-label="Search" />
+          <button type="button" class="btn button_search" type="submit">
+            <i class="bi bi-search text-white"></i>
+          </button>
+        </form>
+        <ul class="navbar-nav a_hamburguer">
+          <li class="nav-item d-flex align-items-center">
+            <div id="hamburguer_neg">
+              <i class="bi bi-shop"></i>
+              <span>Negocios</span>
+            </div>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <div id="hamburguer_prod">
+              <i class="bi bi-bag"></i>
+              <span>Productos</span>
+            </div>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <div id="hamburguer_prom">
+              <i class="bi bi-percent"></i>
+              <span>Promociones</span>
+            </div>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <div id="hamburguer_res">
+              <i class="bi bi-chat-right-dots-fill"></i>
+              <span>Reseñas</span>
+            </div>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <div id="hamburguer_pyr">
+              <i class="bi bi-question-diamond-fill"></i>
+              <span>Preguntas y Respuestas </span>
+            </div>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <div id="hamburguer_abt">
+              <i class="bi bi-people-fill"></i>
+              <span>Sobre Nosotros</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-flex flex-column w-100 justify-content-between cnf1 Inria">
+    <section class="color1"></section>
+    <section class="color2"></section>
+    <div class="content_form w-100">
+      <section class="d-flex text-white align-items-center p1_cnf">
+        <span class="txt_prin_cnf fw-bolder">¡EMPECEMOS!</span>
+        <i class="bi bi-question-circle quicon_cnf_lg" data-bs-toggle="tooltip" data-bs-placement="right"
+          data-bs-title="Tooltip on right"></i>
+      </section>
+      <div class="p2_cnf d-flex flex-column">
+        <section class="d-flex p21_cnf">
+          <button type="button" class="btn text-white btn_nav_cnf bg-dark" id="Btn_DtNg">
+            Datos del Negocio
+          </button>
+          <button type="button" class="btn btn_nav_cnf btn_nav_cnf_btn2" id="Btn_AñadirP">
+            Añadir Productos
+          </button>
+        </section>
+        <form class="p22_cnf p-4 pt-3" method="post">
+          <span class="dt_txt_cnf" id="dt_txt_cnf">Datos de Negocio</span>
+          <div class="form_cnf Datos_Negocio" id="Datos_Negocio">
+            <!--Parte 1-->
+            <section class="p221_cnf d-flex flex-column justify-content-between">
+              <section>
+                <span class="fw-bold">Nombre del Negocio
+                  <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Tooltip on right"></i></span>
+                <input type="text" class="form-control" placeholder="Nombre de su negocio" />
+              </section>
+              <section>
+                <span class="fw-bold">Tipo de Negocio
+                  <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Tooltip on right"></i></span>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected disabled hidden>
+                    Seleccione su Tipo de Negocio
+                  </option>
+                  <option value="Abarrotes">Abarrotes</option>
+                  <option value="Materia_Prima">Materia Prima</option>
+                  <option value="Restaurantes">Restaurantes</option>
+                  <option value="SyP">Snacks y Postres</option>
+                  <option value="Cafeteria">Cafetería</option>
+                  <option value="Catering">Catering</option>
+                  <option value="Panaderia">Panadería</option>
+                  <option value="OyF">Venta de Ortalizas o frutas</option>
+                </select>
+              </section>
+              <!--HORARIOS-->
+              <div class="d-flex flex-column horarios_cnf">
+                <span class="fw-bold">Horarios
+                  <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Tooltip on right"></i></span>
+                <section class="d-flex h_cnf justify-content-between">
+                  <div class="line_cnf"></div>
+                  <ul class="h-100 d-flex flex-column justify-content-between ds_cnf">
+                    <li class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="lunes" checked />
+                      <label class="form-check-label" for="lunes">
+                        Lunes
+                      </label>
+                    </li>
+                    <li class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="martes" />
+                      <label class="form-check-label" for="martes">
+                        Martes
+                      </label>
+                    </li>
+                    <li class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="miercoles" />
+                      <label class="form-check-label" for="miercoles">
+                        Miercoles
+                      </label>
+                    </li>
+                    <li class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="jueves" />
+                      <label class="form-check-label" for="jueves">
+                        Jueves
+                      </label>
+                    </li>
+                    <li class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="viernes" />
+                      <label class="form-check-label" for="viernes">
+                        Viernes
+                      </label>
+                    </li>
+                    <li class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="sabado" />
+                      <label class="form-check-label" for="sabado">
+                        Sabado
+                      </label>
+                    </li>
+                    <li class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="domingo" />
+                      <label class="form-check-label" for="domingo">
+                        Domingo
+                      </label>
+                    </li>
+                  </ul>
+                  <div class="inph_cnf">
+                    <!--Horas Lunes-->
+                    <section class="inpb_cnf flex-column justify-content-evenly align-items-center" id="hlunes_cnf">
+                      <section class="d-flex flex-column">
+                        <label for="Abierto_L">Hora de Apertura
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Abierto_L" />
+                        <label for="Cerrado_L">Hora de Cerrado
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Cerrado_L" />
+                      </section>
+                      <section class="d-flex">
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="cerr_lun" value="lun_cerr" /><label
+                            for="cerr_lun" class="radio_hc">Día Cerrado</label>
+                        </section>
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="she_lun" value="lun_snhor" /><label
+                            for="she_lun" class="radio_hs">Sin Horario Especifico</label>
+                        </section>
+                      </section>
+                    </section>
+                    <!--Horas Martes-->
+                    <section class="inpb_cnf flex-column justify-content-evenly align-items-center" id="hmartes_cnf">
+                      <!--Horas Martes-->
+                      <section class="d-flex flex-column">
+                        <label for="Abierto_M">Hora de Apertura
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Abierto_M" />
+                        <label for="Cerrado_M">Hora de Cerrado
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Cerrado_M" />
+                      </section>
+                      <!--Botones Martes-->
+                      <section class="d-flex">
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="cerr_mar" value="mar_cerr" /><label
+                            for="cerr_mar" class="radio_hc">Día Cerrado</label>
+                        </section>
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="she_mar" value="mar_snhor" /><label
+                            for="she_mar" class="radio_hs">Sin Horario Especifico</label>
+                        </section>
+                      </section>
+                    </section>
+                    <!--Horas Miercoles-->
+                    <section class="inpb_cnf flex-column justify-content-evenly align-items-center" id="hmiercoles_cnf">
+                      <!--Horas Miercoles-->
+                      <section class="d-flex flex-column">
+                        <label for="Abierto_Mi">Hora de Apertura <i class="bi bi-question-circle"
+                            data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Abierto_Mi" />
+                        <label for="Cerrado_Mi">Hora de Cerrado 
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Cerrado_Mi" />
+                      </section>
+                      <!--Botones Miercoles-->
+                      <section class="d-flex">
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="cerr_mie" value="mie_cerr" /><label
+                            for="cerr_mie" class="radio_hc">Día Cerrado</label>
+                        </section>
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="she_mie" value="mie_snhor" /><label
+                            for="she_mie" class="radio_hs">Sin Horario Especifico</label>
+                        </section>
+                      </section>
+                    </section>
+                    <!--Horas Jueves-->
+                    <section class="inpb_cnf flex-column justify-content-evenly align-items-center" id="hjueves_cnf">
+                      <!--Horas Jueves-->
+                      <section class="d-flex flex-column">
+                        <label for="Abierto_J">Hora de Apertura
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Abierto_J" />
+                        <label for="Cerrado_J">Hora de Cerrado
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Cerrado_J" />
+                      </section>
+                      <!--Botones Jueves-->
+                      <section class="d-flex">
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="cerr_jue" value="jue_cerr" /><label
+                            for="cerr_jue" class="radio_hc">Día Cerrado</label>
+                        </section>
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="she_jue" value="jue_snhor" /><label
+                            for="she_jue" class="radio_hs">Sin Horario Especifico</label>
+                        </section>
+                      </section>
+                    </section>
+                    <!--Horas Viernes-->
+                    <section class="inpb_cnf flex-column justify-content-evenly align-items-center" id="hviernes_cnf">
+                      <!--Horas Viernes-->
+                      <section class="d-flex flex-column">
+                        <label for="Abierto_V">Hora de Apertura
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Abierto_V" />
+                        <label for="Cerrado_V">Hora de Cerrado
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Cerrado_V" />
+                      </section>
+                      <!--Botones Viernes-->
+                      <section class="d-flex">
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="cerr_vie" value="vie_cerr" /><label
+                            for="cerr_vie" class="radio_hc">Día Cerrado</label>
+                        </section>
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="she_vie" value="vie_snhor" /><label
+                            for="she_vie" class="radio_hs">Sin Horario Especifico</label>
+                        </section>
+                      </section>
+                    </section>
+                    <!--Horas Sabado-->
+                    <section class="inpb_cnf flex-column justify-content-evenly align-items-center" id="hsabado_cnf">
+                      <!--Horas Sabado-->
+                      <section class="d-flex flex-column">
+                        <label for="Abierto_S">Hora de Apertura
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Abierto_S" />
+                        <label for="Cerrado_S">Hora de Cerrado
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Cerrado_S" />
+                      </section>
+                      <!--Botones Sabado-->
+                      <section class="d-flex">
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="cerr_sab" value="sab_cerr" /><label
+                            for="cerr_sab" class="radio_hc">Día Cerrado</label>
+                        </section>
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="she_sab" value="sab_snhor" /><label
+                            for="she_sab" class="radio_hs">Sin Horario Especifico</label>
+                        </section>
+                      </section>
+                    </section>
+                    <!--Horas Domingo-->
+                    <section class="inpb_cnf flex-column justify-content-evenly align-items-center" id="hdomingo_cnf">
+                      <!--Horas Domingo-->
+                      <section class="d-flex flex-column">
+                        <label for="Abierto_D">Hora de Apertura
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Abierto_D" />
+                        <label for="Cerrado_D">Hora de Cerrado
+                          <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                            data-bs-title="Tooltip on right"></i></label>
+                        <input type="time" class="form-control" id="Cerrado_D" />
+                      </section>
+                      <!--Botones Domingo-->
+                      <section class="d-flex">
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="cerr_dom" value="dom_cerr" /><label
+                            for="cerr_dom" class="radio_hc">Día Cerrado</label>
+                        </section>
+                        <section class="d-flex">
+                          <input type="checkbox" class="btn btn_rosa text-white" id="she_dom" value="dom_snhor" /><label
+                            for="she_dom" class="radio_hs">Sin Horario Especifico</label>
+                        </section>
+                      </section>
+                    </section>
+                  </div>
+                </section>
+              </div>
+            </section>
+            <!--Parte 2-->
+            <section class="p222_cnf d-flex flex-column justify-content-between">
+              <div class="lyd d-flex justify-content-center align-items-center">
+                <div class="log_cnf d-flex flex-column justify-content-center align-items-center">
+                  <span class="fw-bold">Logo del Negocio
+                    <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Tooltip on right"></i></span>
+                  <section class="Logo_Prev" id="Logo_Prev">
+                    <img src="" alt="Logo" id="Prev_Log" class="Prev_Log" />
+                    <input type="file" class="d-none" name="logo_cnf" id="logo_cnf" accept="image/png, image/jpeg" />
+                    <i class="bi bi-image Plus_L" id="Plus_L"></i>
+                  </section>
+                </div>
+                <section class="d-flex flex-column dec_cnf">
+                  <span class="fw-bold">Descripcion del Negocio
+                    <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Tooltip on right"></i></span>
+                  <textarea class="form-control txta_cnf" name="" id=""></textarea>
+                </section>
+              </div>
+              <div class="d-flex justify-content-between align-items-center bg-ob dir">
+                <section class="d-flex flex-column h-100 justify-content-between">
+                  <span class="fw-bold">Direccion del Local
+                    <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Tooltip on right"></i></span>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120545.72792553862!2d-99.16312141549678!3d19.236478317597356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce038c6de8dea3%3A0x9b79f71fdabd5384!2sXochimilco%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1699549046798!5m2!1ses-419!2smx"
+                    width="250" height="150" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <section>
+                    <label for="cpp">Codigo Postal
+                      <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                        data-bs-title="Tooltip on right"></i></label>
+                    <input type="text" class="form-control" name="" id="cpp" />
+                  </section>
+                </section>
+                <section class="d-flex flex-column h-100 justify-content-between">
+                  <label for="colonia">Colonia</label>
+                  <input type="text" class="form-control" id="colonia" />
+                  <label for="calle">Calle</label>
+                  <input type="text" class="form-control" id="calle" />
+                  <label for="numero">Número</label>
+                  <input type="text" class="form-control" id="numero" />
+                  <label for="iextra">Indicaciones Extra</label>
+                  <input type="text" class="form-control" id="iextra" />
+                </section>
+              </div>
+            </section>
+            <!--Parte 3-->
+            <div class="p223_cnf">
+              <div class="container__slider">
+                <span class="fw-bold">Imagenes del Local
+                  <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Tooltip on right"></i></span>
+                <div class="container_c">
+                  <input type="radio" name="slider" id="item-1" checked />
+                  <input type="radio" name="slider" id="item-2" />
+                  <input type="radio" name="slider" id="item-3" />
+
+                  <div class="cards">
+                    <label class="card" for="item-1" id="selector-1">
+                      <input type="file" class="d-none" name="inp_img1_cnf" id="inp_img1_cnf" accept="image/png, image/jpeg"/>
+                      <img src="" alt="Negocio 1" id="imagen1_neg"/>
+                      <i class="bi bi-image Plus_L" id="Plus_i1"></i>
+                    </label>
+                    <label class="card" for="item-2" id="selector-2">
+                      <input type="file" class="d-none" name="inp_img2_cnf" id="inp_img2_cnf" accept="image/png, image/jpeg"/>
+                      <img src="" alt="Negocio 2" id="imagen2_neg"/>
+                      <i class="bi bi-image Plus_L" id="Plus_i2"></i>
+                    </label>
+                    <label class="card" for="item-3" id="selector-3">
+                      <input type="file" class="d-none" name="inp_img3_cnf" id="inp_img3_cnf" accept="image/png, image/jpeg"/>
+                      <img src="" alt="Negocio 3" id="imagen3_neg"/>
+                      <i class="bi bi-image Plus_L" id="Plus_i3"></i>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <ul class="d-flex flex-column contacts_cnf justify-content-between bg-ob">
+                <li class="d-flex fw-bold">
+                  <span>Contactos del Local
+                    <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Número Telefonico"></i></span>
+                </li>
+                <!--Telefono-->
+                <li class="d-flex ctc_l">
+                  <label for="tel_loc_cnf"><i class="bi bi-telephone-fill" data-bs-toggle="tooltip"
+                      data-bs-placement="right" data-bs-title="Número Telefonico (Sin espacios)"></i></label><input
+                    type="tel" id="tel_loc_cnf" class="form-control" />
+                </li>
+                <!--Email-->
+                <li class="d-flex ctc_l">
+                  <label for="mail_loc_cnf"><i class="bi bi-envelope-fill" data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      data-bs-title="Correo Electronico (example@dominio.com)"></i></label><input type="text"
+                    id="mail_loc_cnf" class="form-control" />
+                </li>
+                <!--Facebook-->
+                <li class="d-flex ctc_l">
+                  <label for="face_loc_cnf"><i class="bi bi-facebook" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Pagina o Cuenta de Facebook (URL)"></i></label><input type="text" id="face_loc_cnf"
+                    class="form-control" />
+                </li>
+                <li class="d-flex ctc_l">
+                  <label for="inst_loc_cnf"><i class="bi bi-instagram" data-bs-toggle="tooltip"
+                      data-bs-placement="right" data-bs-title="Perfil de Instagram (URL)"></i></label><input type="text"
+                    id="inst_loc_cnf" class="form-control" />
+                </li>
+                <!--Twitter-->
+                <li class="d-flex ctc_l">
+                  <label for="twit_loc_cnf"><i class="bi bi-twitter" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Perfil de Twitter (URL)"></i></label><input type="text" id="twit_loc_cnf"
+                    class="form-control" />
+                </li>
+                <!--Web-->
+                <li class="d-flex ctc_l">
+                  <label for="web_loc_cnf"><i class="bi bi-globe" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Pagina Web (URL)"></i></label><input type="text" id="web_loc_cnf"
+                    class="form-control" />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Activar todos los tooltips
+    var tooltips = new bootstrap.Tooltip(document.body, {
+      selector: '[data-bs-toggle="tooltip"]',
+    });
+  </script>
+
+  <script src="js/Nav.js"></script>
+  <script src="js/Nav_CC.js"></script>
+  <script src="js/cnf.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

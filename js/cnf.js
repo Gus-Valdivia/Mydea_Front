@@ -55,9 +55,12 @@ let Cerr_Dom = document.getElementById("cerr_dom");
 let She_Dom = document.getElementById("she_dom");
 
 let Form_Sub_Neg = document.getElementById("Datos_Negocio");
-let Btn_AProduct = document.getElementById("Btn_AñadirP");
+let Form_AnP = document.getElementById("Productos_cnf");
+let Btn_AProduct = document.getElementById("Btn_AnadirP");
 let Btn_DNProduct = document.getElementById("Btn_DtNg");
 let Txt_tittle_cnf = document.getElementById("dt_txt_cnf");
+
+Form_AnP.style.display = "none";
 
 document.addEventListener('DOMContentLoaded', function() {
   var radiosDias = document.querySelectorAll('.form-check-input');
@@ -361,6 +364,7 @@ She_Dom.addEventListener("change", ()=>{
 
 //Botón Datos del Negocio
 Btn_DNProduct.addEventListener("click", ()=>{
+  Form_AnP.style.display = "none";
   Form_Sub_Neg.style.display = "flex";
   Btn_DNProduct.classList.add("bg-dark");
   Btn_DNProduct.style.color = "#FFF";
@@ -375,6 +379,7 @@ Btn_DNProduct.addEventListener("click", ()=>{
 
 //Botón Añadir Productos
 Btn_AProduct.addEventListener("click", ()=>{
+  Form_AnP.style.display = "flex";
   Form_Sub_Neg.style.display = "none";
   Btn_AProduct.classList.add("bg-dark");
   Btn_AProduct.style.color = "#FFF";
@@ -384,5 +389,5 @@ Btn_AProduct.addEventListener("click", ()=>{
   Btn_DNProduct.style.fontWeight = "400";
   Btn_DNProduct.classList.add("btn_nav_cnf_btn2");
   Btn_DNProduct.style.color = "#000";
-  Txt_tittle_cnf.innerText = "Añadir Productos";
+  Txt_tittle_cnf.innerText = "Crear y Añadir Productos";
 });

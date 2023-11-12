@@ -1,39 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Number sin Flechas con Bootstrap</title>
-    <!-- Agrega el enlace al archivo de estilo de Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Arrastrar Divs Verticalmente</title>
+    <!-- Agrega el enlace a la biblioteca Sortable -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <style>
-        /* Estilo personalizado para ocultar las flechas en input type="number" */
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        input[type="number"] {
-            -moz-appearance: textfield;
+        /* Estilos para los elementos que pueden ser arrastrados */
+        .draggable {
+            width: 100%;
+            height: 50px;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+            cursor: grab;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <form>
-            <div class="form-group">
-                <label for="precio">Precio:</label>
-                <!-- Utiliza la clase form-control de Bootstrap y establece el atributo "inputmode" en "numeric" -->
-                <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio" inputmode="numeric" pattern="[0-9]*">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+    <div id="contenedor">
+        <div class="draggable">Div 1</div>
+        <div class="draggable">Div 2</div>
+        <div class="draggable">Div 3</div>
+        <!-- Agrega más divs según sea necesario -->
     </div>
 
-    <!-- Agrega los enlaces a Bootstrap JS y jQuery (necesario para Bootstrap 4) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Inicializa Sortable para el contenedor
+        const contenedor = document.getElementById('contenedor');
+        const opcionesArrastre = {
+            animation: 150,
+            onStart(evt) {
+                evt.from.style.height = evt.item.offsetHeight + 'px';
+            },
+            onEnd(evt) {
+                evt.from.style.height = '';
+            },
+        };
+        const sortable = new Sortable(contenedor, opcionesArrastre);
+    </script>
 </body>
 </html>

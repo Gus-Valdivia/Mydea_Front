@@ -1,5 +1,7 @@
 :root {
-  --bar-color: #d93855;
+  --bar-color: rgb(91, 29, 99);
+  --bar-color2: rgba(217, 217, 217, 0.8);
+  --bar-color3: #d93855;
 }
 
 .cnf1 {
@@ -147,7 +149,8 @@ input[type="radio"]:checked {
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: rgb(0, 0, 0) 5px 5px 0px;
+  border: 3px solid black;
   height: 92%;
 }
 
@@ -193,11 +196,26 @@ input[type="radio"]:checked {
 
 .Datos_Negocio input[type="text"],
 textarea,
-select,
-.cnf1 input[type="tel"] {
+.form-select,
+.cnf1 input[type="tel"], input[type="time"]{
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
   height: 30px;
+  border: 2px solid black;
+  background-color: rgb(229, 229, 229);
 }
+
+.form-select{
+  height: auto;
+}
+
+
+.Datos_Negocio input[type="text"]:focus,
+textarea:focus,
+select:focus,
+.cnf1 input[type="tel"]:focus{
+  background-color: white;
+}
+
 select {
   height: 35px;
 }
@@ -232,12 +250,12 @@ select {
 .Logo_Prev {
   width: 65%;
   height: 90%;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--bar-color2);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid white;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+  border: 3px solid rgb(0, 0, 0);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -247,7 +265,7 @@ select {
 
 .Logo_Prev i,
 .cards i {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 1.8rem;
   cursor: pointer;
 }
@@ -264,7 +282,7 @@ select {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .lyd {
@@ -283,6 +301,12 @@ select {
 .txta_cnf {
   height: 100%;
   resize: none;
+  background: rgb(229, 229, 229);
+  border: 2px solid black;
+}
+
+.txta_cnf:focus{
+  background: white;
 }
 
 .inph_cnf {
@@ -292,8 +316,8 @@ select {
 
 .inpb_cnf {
   display: none;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -301,6 +325,8 @@ select {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  border: 3px solid black;
+  box-shadow: 3px 3px 1px black;
 }
 
 .inpb_cnf section {
@@ -352,6 +378,7 @@ select {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  color: white;
 }
 
 .ctc_l {
@@ -359,14 +386,17 @@ select {
 }
 
 .bg-ob {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   padding: 5px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  padding: 10px;
+  border: 3px solid black;
+  box-shadow:3px 3px 1px rgba(0, 0, 0, 0.9);
 }
 
 .cards img {
@@ -374,12 +404,12 @@ select {
 }
 
 .cards label {
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--bar-color2);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid white;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+  border: 3px solid rgb(0, 0, 0);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -393,10 +423,11 @@ select {
 .radio_hc,
 .radio_hs {
   font-size: 0.8rem;
+  color: white;
 }
 
 .radio_hc {
-  background-color: var(--bar-color);
+  background-color: var(--bar-color3);
   padding: 2px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -407,8 +438,7 @@ select {
 }
 
 .radio_hs {
-  color: black;
-  background-color: white;
+  background-color: rgb(2, 0, 0);
   padding: 2px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -465,17 +495,6 @@ label img {
 }
 .prof2_cnf {
   width: 43%;
-  overflow-y: scroll;
-}
-
-.prof2_cnf::-webkit-scrollbar{
-  width: 5px;
-  background-color: var(--bar-color);
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
 }
 
 .prof1_cnf,
@@ -487,9 +506,57 @@ label img {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   padding: 10px;
+  height: 100%;
 }
 
 .prof1_s2 input{
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
   height: 40px;
 }
+
+.Prod_Cont{
+  height: 90%;
+  overflow-y:scroll;
+  background-color: #777;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 2%;
+}
+
+.Prod_Cont::-webkit-scrollbar{
+  width: 8px;
+}
+
+.Prod_Cont::-webkit-scrollbar-track{
+  background: rgb(255, 255, 255);
+}
+
+.Prod_Cont::-webkit-scrollbar-thumb{
+  background-color: var(--bar-color);
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.prod{
+  height: 40%;
+  color: white;
+  background: black;
+  margin-bottom: 13px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 2%;
+}
+
+.prod:last-child{
+  margin-bottom: 0px;
+}
+

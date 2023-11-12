@@ -2,6 +2,10 @@ let Plus_Logo = document.getElementById("Plus_L");
 let Input_L = document.getElementById("logo_cnf");
 let Most_Img = document.getElementById("Prev_Log");
 
+let Plus_Prod = document.getElementById("Plus_Prod");
+let Input_ProdL = document.getElementById("Prod_cnf");
+let Most_Img_Prod = document.getElementById("Prev_img_Prod");
+
 let img_1_cnf = document.getElementById("Plus_i1");
 let img_2_cnf = document.getElementById("Plus_i2");
 let img_3_cnf = document.getElementById("Plus_i3");
@@ -60,17 +64,19 @@ let Btn_AProduct = document.getElementById("Btn_AnadirP");
 let Btn_DNProduct = document.getElementById("Btn_DtNg");
 let Txt_tittle_cnf = document.getElementById("dt_txt_cnf");
 
+
+
 Form_AnP.style.display = "none";
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var radiosDias = document.querySelectorAll('.form-check-input');
 
   // Agregar un manejador de eventos de clic a cada radio con la clase 'radio-dias'
-  radiosDias.forEach(function(radio) {
-      radio.addEventListener('click', function() {
-          mostrarDiv(this.id);
-          console.log(this.id);
-      });
+  radiosDias.forEach(function (radio) {
+    radio.addEventListener('click', function () {
+      mostrarDiv(this.id);
+      console.log(this.id);
+    });
   });
 });
 
@@ -79,14 +85,14 @@ function mostrarDiv(diaSeleccionado) {
   console.log(diaSeleccionado)
   var divs = document.getElementsByClassName('inpb_cnf');
   for (var i = 0; i < divs.length; i++) {
-      divs[i].style.display = 'none';
+    divs[i].style.display = 'none';
   }
 
   // Mostrar el div correspondiente al día seleccionado
   var divMostrar = document.getElementById('h' + diaSeleccionado + '_cnf');
   console.log(divMostrar);
   if (divMostrar) {
-      divMostrar.style.display = 'flex';
+    divMostrar.style.display = 'flex';
   }
 }
 
@@ -178,184 +184,207 @@ function showPreviewImage(event) {
 
 Input_L.addEventListener("change", showPreviewImage);
 
+/*PRODUCTO*/
+Plus_Prod.addEventListener("click", function () {
+  Input_ProdL.click();
+});
+
+function showPreviewImage_Prod(event) {
+  Most_Img_Prod.style.display = "flex";
+  Plus_Prod.style.position = "absolute";
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    Most_Img_Prod.src = event.target.result;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+Input_ProdL.addEventListener("change", showPreviewImage_Prod);
+
+
 /*HORARIOS*/
 
-Cerr_Lun.addEventListener("change", ()=>{
-  if(Cerr_Lun.checked){
+Cerr_Lun.addEventListener("change", () => {
+  if (Cerr_Lun.checked) {
     HorA_Lun.disabled = true;
     HorC_Lun.disabled = true;
     She_Lun.disabled = true;
   }
-  if(!Cerr_Lun.checked){
+  if (!Cerr_Lun.checked) {
     HorA_Lun.disabled = false;
     HorC_Lun.disabled = false;
     She_Lun.disabled = false;
   }
 });
 
-Cerr_Mar.addEventListener("change", ()=>{
-  if(Cerr_Mar.checked){
+Cerr_Mar.addEventListener("change", () => {
+  if (Cerr_Mar.checked) {
     HorA_Mar.disabled = true;
     HorC_Mar.disabled = true;
     She_Mar.disabled = true;
   }
-  if(!Cerr_Mar.checked){
+  if (!Cerr_Mar.checked) {
     HorA_Mar.disabled = false;
     HorC_Mar.disabled = false;
     She_Mar.disabled = false;
   }
 });
 
-Cerr_Mie.addEventListener("change", ()=>{
-  if(Cerr_Mie.checked){
+Cerr_Mie.addEventListener("change", () => {
+  if (Cerr_Mie.checked) {
     HorA_Mie.disabled = true;
     HorC_Mie.disabled = true;
     She_Mie.disabled = true;
   }
-  if(!Cerr_Mie.checked){
+  if (!Cerr_Mie.checked) {
     HorA_Mie.disabled = false;
     HorC_Mie.disabled = false;
     She_Mie.disabled = false;
   }
 });
 
-Cerr_Jue.addEventListener("change", ()=>{
-  if(Cerr_Jue.checked){
+Cerr_Jue.addEventListener("change", () => {
+  if (Cerr_Jue.checked) {
     HorA_Jue.disabled = true;
     HorC_Jue.disabled = true;
     She_Jue.disabled = true;
   }
-  if(!Cerr_Jue.checked){
+  if (!Cerr_Jue.checked) {
     HorA_Jue.disabled = false;
     HorC_Jue.disabled = false;
     She_Jue.disabled = false;
   }
 });
 
-Cerr_Vie.addEventListener("change", ()=>{
-  if(Cerr_Vie.checked){
+Cerr_Vie.addEventListener("change", () => {
+  if (Cerr_Vie.checked) {
     HorA_Vie.disabled = true;
     HorC_Vie.disabled = true;
     She_Vie.disabled = true;
   }
-  if(!Cerr_Vie.checked){
+  if (!Cerr_Vie.checked) {
     HorA_Vie.disabled = false;
     HorC_Vie.disabled = false;
     She_Vie.disabled = false;
   }
 });
 
-Cerr_Sab.addEventListener("change", ()=>{
-  if(Cerr_Sab.checked){
+Cerr_Sab.addEventListener("change", () => {
+  if (Cerr_Sab.checked) {
     HorA_Sab.disabled = true;
     HorC_Sab.disabled = true;
     She_Sab.disabled = true;
   }
-  if(!Cerr_Sab.checked){
+  if (!Cerr_Sab.checked) {
     HorA_Sab.disabled = false;
     HorC_Sab.disabled = false;
     She_Sab.disabled = false;
   }
 });
 
-Cerr_Dom.addEventListener("change", ()=>{
-  if(Cerr_Dom.checked){
+Cerr_Dom.addEventListener("change", () => {
+  if (Cerr_Dom.checked) {
     HorA_Dom.disabled = true;
     HorC_Dom.disabled = true;
     She_Dom.disabled = true;
   }
-  if(!Cerr_Dom.checked){
+  if (!Cerr_Dom.checked) {
     HorA_Dom.disabled = false;
     HorC_Dom.disabled = false;
     She_Dom.disabled = false;
   }
 });
 
-She_Lun.addEventListener("change", ()=>{
-  if(She_Lun.checked){
+She_Lun.addEventListener("change", () => {
+  if (She_Lun.checked) {
     HorA_Lun.disabled = true;
     HorC_Lun.disabled = true;
     Cerr_Lun.disabled = true;
   }
-  if(!She_Lun.checked){
+  if (!She_Lun.checked) {
     HorA_Lun.disabled = false;
     HorC_Lun.disabled = false;
     Cerr_Lun.disabled = false;
   }
 });
 
-She_Mar.addEventListener("change", ()=>{
-  if(She_Mar.checked){
+She_Mar.addEventListener("change", () => {
+  if (She_Mar.checked) {
     HorA_Mar.disabled = true;
     HorC_Mar.disabled = true;
     Cerr_Mar.disabled = true;
   }
-  if(!She_Mar.checked){
+  if (!She_Mar.checked) {
     HorA_Mar.disabled = false;
     HorC_Mar.disabled = false;
     Cerr_Mar.disabled = false;
   }
 });
 
-She_Mie.addEventListener("change", ()=>{
-  if(She_Mie.checked){
+She_Mie.addEventListener("change", () => {
+  if (She_Mie.checked) {
     HorA_Mie.disabled = true;
     HorC_Mie.disabled = true;
     Cerr_Mie.disabled = true;
   }
-  if(!She_Mie.checked){
+  if (!She_Mie.checked) {
     HorA_Mie.disabled = false;
     HorC_Mie.disabled = false;
     Cerr_Mie.disabled = false;
   }
 });
 
-She_Jue.addEventListener("change", ()=>{
-  if(She_Jue.checked){
+She_Jue.addEventListener("change", () => {
+  if (She_Jue.checked) {
     HorA_Jue.disabled = true;
     HorC_Jue.disabled = true;
     Cerr_Jue.disabled = true;
   }
-  if(!She_Jue.checked){
+  if (!She_Jue.checked) {
     HorA_Jue.disabled = false;
     HorC_Jue.disabled = false;
     Cerr_Jue.disabled = false;
   }
 });
 
-She_Vie.addEventListener("change", ()=>{
-  if(She_Vie.checked){
+She_Vie.addEventListener("change", () => {
+  if (She_Vie.checked) {
     HorA_Vie.disabled = true;
     HorC_Vie.disabled = true;
     Cerr_Vie.disabled = true;
   }
-  if(!She_Vie.checked){
+  if (!She_Vie.checked) {
     HorA_Vie.disabled = false;
     HorC_Vie.disabled = false;
     Cerr_Vie.disabled = false;
   }
 });
 
-She_Sab.addEventListener("change", ()=>{
-  if(She_Sab.checked){
+She_Sab.addEventListener("change", () => {
+  if (She_Sab.checked) {
     HorA_Sab.disabled = true;
     HorC_Sab.disabled = true;
     Cerr_Sab.disabled = true;
   }
-  if(!She_Sab.checked){
+  if (!She_Sab.checked) {
     HorA_Sab.disabled = false;
     HorC_Sab.disabled = false;
     Cerr_Sab.disabled = false;
   }
 });
 
-She_Dom.addEventListener("change", ()=>{
-  if(She_Dom.checked){
+She_Dom.addEventListener("change", () => {
+  if (She_Dom.checked) {
     HorA_Dom.disabled = true;
     HorC_Dom.disabled = true;
     Cerr_Dom.disabled = true;
   }
-  if(!She_Dom.checked){
+  if (!She_Dom.checked) {
     HorA_Dom.disabled = false;
     HorC_Dom.disabled = false;
     Cerr_Dom.disabled = false;
@@ -363,7 +392,7 @@ She_Dom.addEventListener("change", ()=>{
 });
 
 //Botón Datos del Negocio
-Btn_DNProduct.addEventListener("click", ()=>{
+Btn_DNProduct.addEventListener("click", () => {
   Form_AnP.style.display = "none";
   Form_Sub_Neg.style.display = "flex";
   Btn_DNProduct.classList.add("bg-dark");
@@ -378,7 +407,7 @@ Btn_DNProduct.addEventListener("click", ()=>{
 });
 
 //Botón Añadir Productos
-Btn_AProduct.addEventListener("click", ()=>{
+Btn_AProduct.addEventListener("click", () => {
   Form_AnP.style.display = "flex";
   Form_Sub_Neg.style.display = "none";
   Btn_AProduct.classList.add("bg-dark");
@@ -390,4 +419,36 @@ Btn_AProduct.addEventListener("click", ()=>{
   Btn_DNProduct.classList.add("btn_nav_cnf_btn2");
   Btn_DNProduct.style.color = "#000";
   Txt_tittle_cnf.innerText = "Crear y Añadir Productos o Servicios";
+});
+
+let Btn_AProd = document.getElementById("btn_AProd");
+let Nom_Prod_inp = document.getElementById("Nom_Pro_inp");
+let Pre_Prod_inp = document.getElementById("Pre_Prod_inp");
+let Desc_Pro_inp = document.getElementById("Desc_Pro_inp");
+let Tip_Pro_inp = document.getElementById("Tip_Pro_inp");
+let pro1 = document.getElementById("prod1");
+let pro1_HTML = document.getElementById("prod1").innerHTML;
+let pro2 = document.getElementById("prod2");
+let pro2_HTML = document.getElementById("prod2").innerHTML;
+let pro3 = document.getElementById("prod3");
+let pro3_HTML = document.getElementById("prod3").innerHTML;
+
+
+Btn_AProd.addEventListener("click", () => {
+  if (Input_ProdL.value != "" && Nom_Prod_inp.value != "" && Pre_Prod_inp.value != "" && Desc_Pro_inp.value != "" && Tip_Pro_inp.value != "Seleccione la Disponibilidad de su Producto o Servicio") {
+    if(pro1_HTML =="" && pro2_HTML =="" && pro3_HTML == ""){
+      pro1.innerHTML = '<img src="'+Most_Img_Prod.value+'" alt="prod1" class="img_prod_cnf"><input type="file" class="d-none" disabled><section class="d-flex flex-column Prod_Lis"><input type="text" class="N_ProVP" value="'+Nom_Prod_inp.value+'" disabled><textarea type="text"class="D_ProVP"disabled>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima pariatur quas expedita ullam inventore sapiente adipisci magnam, consequuntur architecto nemo? Earum tempora modi quis, ut eius nulla et ducimus temporibus!</textarea><section class="d-flex w-100 justify-content-between"><input type="text" value="$000" id="precio" disabled><input type="text" id="dis" value="Disponible en Todo Momento" disabled><button class="btn_elim_pro btn_rosa" type="button">Eliminar</button></section></section>';
+      alert()
+    }
+  } else {
+    Swal.fire({
+      title: "FORMULARIO INCOMPLETO",
+      text: "Asegurese de haber completado TODOS los campos solicitados",
+      icon: "error",
+      showCancelButton: false,
+      showConfirmButton: false,
+      timer: 2500,
+      timerProgressBar: true,
+    })
+  }
 });

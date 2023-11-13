@@ -433,12 +433,35 @@ let pro2_HTML = document.getElementById("prod2").innerHTML;
 let pro3 = document.getElementById("prod3");
 let pro3_HTML = document.getElementById("prod3").innerHTML;
 
-
 Btn_AProd.addEventListener("click", () => {
   if (Input_ProdL.value != "" && Nom_Prod_inp.value != "" && Pre_Prod_inp.value != "" && Desc_Pro_inp.value != "" && Tip_Pro_inp.value != "Seleccione la Disponibilidad de su Producto o Servicio") {
-    if(pro1_HTML =="" && pro2_HTML =="" && pro3_HTML == ""){
-      pro1.innerHTML = '<img src="'+Most_Img_Prod.value+'" alt="prod1" class="img_prod_cnf"><input type="file" class="d-none" disabled><section class="d-flex flex-column Prod_Lis"><input type="text" class="N_ProVP" value="'+Nom_Prod_inp.value+'" disabled><textarea type="text"class="D_ProVP"disabled>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima pariatur quas expedita ullam inventore sapiente adipisci magnam, consequuntur architecto nemo? Earum tempora modi quis, ut eius nulla et ducimus temporibus!</textarea><section class="d-flex w-100 justify-content-between"><input type="text" value="$000" id="precio" disabled><input type="text" id="dis" value="Disponible en Todo Momento" disabled><button class="btn_elim_pro btn_rosa" type="button">Eliminar</button></section></section>';
-      alert()
+    var url = URL.createObjectURL(Input_ProdL.files[0]);
+    alert((pro1_HTML.trim() === ""))
+    if (pro1_HTML == "" && pro2_HTML == "" && pro3_HTML == "") {
+      pro1.innerHTML = '<img src="' + url + '" alt="prod1" class="img_prod_cnf"><input type="file" class="d-none" disabled><section class="d-flex flex-column Prod_Lis"><input type="text" class="N_ProVP" value="' + Nom_Prod_inp.value + '" disabled><textarea type="text"class="D_ProVP"disabled>' + Desc_Pro_inp.value + '</textarea><section class="d-flex w-100 justify-content-between"><input type="text" value="$' + Pre_Prod_inp.value + '" id="precio" disabled><input type="text" id="dis" value="' + Tip_Pro_inp.value + '" disabled><button class="btn_elim_pro btn_rosa" type="button">Eliminar</button></section></section>';
+      eliminarValores();
+      alert("Esta vacio");
+    }
+
+    if (pro1_HTML != "" && pro2_HTML == "" && pro3_HTML == "") {
+      pro2.innerHTML = '<img src="' + url + '" alt="prod2" class="img_prod_cnf"><input type="file" class="d-none" disabled><section class="d-flex flex-column Prod_Lis"><input type="text" class="N_ProVP" value="' + Nom_Prod_inp.value + '" disabled><textarea type="text"class="D_ProVP"disabled>' + Desc_Pro_inp.value + '</textarea><section class="d-flex w-100 justify-content-between"><input type="text" value="$' + Pre_Prod_inp.value + '" id="precio" disabled><input type="text" id="dis" value="' + Tip_Pro_inp.value + '" disabled><button class="btn_elim_pro btn_rosa" type="button">Eliminar</button></section></section>';
+      eliminarValores();
+      alert("Ya existe 1");
+    }
+
+    if (pro1_HTML != "" && pro2_HTML != "" && pro3_HTML == "") {
+      pro3.innerHTML = '<img src="' + url + '" alt="prod3" class="img_prod_cnf"><input type="file" class="d-none" disabled><section class="d-flex flex-column Prod_Lis"><input type="text" class="N_ProVP" value="' + Nom_Prod_inp.value + '" disabled><textarea type="text"class="D_ProVP"disabled>' + Desc_Pro_inp.value + '</textarea><section class="d-flex w-100 justify-content-between"><input type="text" value="$' + Pre_Prod_inp.value + '" id="precio" disabled><input type="text" id="dis" value="' + Tip_Pro_inp.value + '" disabled><button class="btn_elim_pro btn_rosa" type="button">Eliminar</button></section></section>';
+      eliminarValores();
+    }
+
+    function eliminarValores() {
+      Input_ProdL.value = "";
+      Nom_Prod_inp.value = "";
+      Pre_Prod_inp.value = "";
+      Desc_Pro_inp.value = "";
+      Tip_Pro_inp.value = "Seleccione la Disponibilidad de su Producto o Servicio";
+      Most_Img_Prod.src = "";
+      Most_Img_Prod.style.display = "none";
     }
   } else {
     Swal.fire({
@@ -449,6 +472,27 @@ Btn_AProd.addEventListener("click", () => {
       showConfirmButton: false,
       timer: 2500,
       timerProgressBar: true,
-    })
+    });
   }
+});
+
+let FORM_CNF = document.getElementById("FORM_CNF");
+let Btn_S = document.getElementById("Btn_SubN");
+
+Btn_S.addEventListener("click", (event) => {
+  event.preventDefault();
+  Swal.fire({
+    title: "¿Está seguro de subir su negocio?",
+    text: "Una vez confirme su negocio será publicado con los datos proporcionados (Puede editar los datos del Negocio y los Productos despues).",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "rgba(244, 55, 112, 0.8)",
+    cancelButtonColor: "#971A40",
+    confirmButtonText: "Aceptar",
+    cancelButtonText: "Cancelar"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      FORM_CNF.submit();
+    }
+  });
 });
